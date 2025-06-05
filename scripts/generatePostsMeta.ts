@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
-import type { PostMeta } from '../app/blog/types';
+import type { PostMeta } from '../types';
 
 const POSTS_DIR = path.join(process.cwd(), 'app/posts');
 const META_FILE = path.join(process.cwd(), 'app/postsMeta.ts');
