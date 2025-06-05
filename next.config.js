@@ -10,6 +10,16 @@ const nextConfig = {
     // Enable type checking during build
     ignoreBuildErrors: false,
   },
+  // Ensure React is in scope for JSX
+  experimental: {
+    reactRemoveProperties: false,
+  },
+  compiler: {
+    reactRemoveProperties: false,
+  },
+  // Required for GitHub Pages
+  basePath: process.env.NODE_ENV === 'production' ? '' : '',
+  assetPrefix: process.env.NODE_ENV === 'production' ? '' : '',
 };
 
 export default nextConfig;
