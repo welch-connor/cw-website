@@ -1,5 +1,12 @@
 // Common types used across the application
 
+export interface PostMeta {
+  title: string;
+  date: string;
+  readTime: string;
+  excerpt: string;
+}
+
 export interface NavLink {
   href: string;
   label: string;

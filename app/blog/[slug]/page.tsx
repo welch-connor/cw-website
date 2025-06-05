@@ -2,7 +2,6 @@ import fs from 'fs';
 import path from 'path';
 import Link from 'next/link';
 import { postsMeta } from '../postsMeta';
-import type { PostMeta } from '../types';
 
 
 // Statically generate all blog slugs from the posts folder
