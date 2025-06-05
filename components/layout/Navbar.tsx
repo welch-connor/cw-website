@@ -5,8 +5,7 @@ import { usePathname } from 'next/navigation';
 import { ThemeToggle } from '@/components/ui/theme-toggle';
 import { useState } from 'react';
 import { Container, Nav, Navbar as BsNavbar } from 'react-bootstrap';
-import { Button, LinkButton } from '@/components/ui/Button';
-import { socialLinks } from '@/data/social';
+import { LinkButton } from '@/components/ui/Button';
 
 interface NavLink {
   href: string;
