@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import Script from 'next/script';
-import { ClientLayout } from './client-layout';
+import ClientLayout from './client-layout';
 import './globals.css';
 
 export const viewport: Viewport = {
@@ -39,6 +39,7 @@ export default function RootLayout({
         />
       </head>
       <body className="min-vh-100 d-flex flex-column">
+        {/* Render ClientLayout as a dynamic client component wrapper */}
         <ClientLayout>
           {children}
         </ClientLayout>
