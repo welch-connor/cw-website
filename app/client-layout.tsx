@@ -84,3 +84,5 @@ export function ClientLayout({
     </ThemeProvider>
   );
 }
+
+export default ClientLayout;
