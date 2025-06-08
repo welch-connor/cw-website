@@ -2,7 +2,7 @@
 
 import { Container, Row, Col } from 'react-bootstrap';
 import Link from 'next/link';
-import { socialLinks } from '@/data/social';
+import { socialLinks } from '@/src/data/social';
 
 export function Footer() {
   const currentYear = new Date().getFullYear();

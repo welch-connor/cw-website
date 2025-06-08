@@ -1,4 +1,4 @@
-import { PostMeta } from '@/types';
+import { PostMeta } from '@/src/types';
 
 export const postsMeta: Record<string, PostMeta> = {
   "test-post": {

@@ -1,11 +1,11 @@
 import Link from 'next/link';
 import { Metadata } from 'next';
-import { PostListing } from '@/lib/mdx/types';
+import { PostListing } from '@/src/lib/mdx/types';
 
 // This is a server component that runs at build time
 async function getPosts() {
   // Use dynamic import to ensure this only runs on the server
-  const { getAllPosts } = await import('@/lib/mdx');
+  const { getAllPosts } = await import('@/src/lib/mdx');
   return getAllPosts();
 }
 
@@ -26,7 +26,7 @@ function BlogPostCard({ post }: BlogPostCardProps) {
         <h2 className="h4 mb-2">
           <Link 
             href={`/blog/${post.slug}`} 
-            className="text-decoration-none text-dark hover-text-primary"
+            className="text-decoration-none text-body-emphasis hover-text-primary"
           >
             {post.title}
           </Link>

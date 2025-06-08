@@ -2,10 +2,11 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { ThemeToggle } from '@/components/ui/theme-toggle';
-import { useState } from 'react';
+import { ThemeToggle } from '@/src/components/ui/theme-toggle';
+import { useState, useEffect } from 'react';
 import { Container, Nav, Navbar as BsNavbar } from 'react-bootstrap';
-import { LinkButton } from '@/components/ui/Button';
+import { LinkButton } from '@/src/components/ui/Button';
+import classNames from 'classnames';
 
 interface NavLink {
   href: string;
@@ -19,6 +20,39 @@ interface NavLink {
 export function Navbar() {
   const [expanded, setExpanded] = useState(false);
   const pathname = usePathname();
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  // Listen for theme changes
+  useEffect(() => {
+    const html = document.documentElement;
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.attributeName === 'class') {
+          setIsDarkMode(html.classList.contains('dark'));
+        }
+      });
+    });
+
+    // Initial check
+    setIsDarkMode(html.classList.contains('dark'));
+
+    // Start observing
+    observer.observe(html, { attributes: true });
+
+    return () => observer.disconnect();
+  }, []);
+
+  const navbarClasses = classNames(
+    'sticky-top shadow-sm',
+    'navbar',
+    'navbar-expand-lg',
+    {
+      'navbar-dark': isDarkMode,
+      'navbar-light': !isDarkMode,
+      'bg-dark': isDarkMode,
+      'bg-body': !isDarkMode,
+    }
+  );
 
   const navLinks: NavLink[] = [
     { 
@@ -51,14 +85,16 @@ export function Navbar() {
   return (
     <BsNavbar 
       expand="lg" 
-      className="bg-body-tertiary sticky-top shadow-sm" 
+      className={navbarClasses}
       expanded={expanded}
       onToggle={() => setExpanded(!expanded)}
       style={{
         zIndex: 1030,
         transition: 'all 0.3s ease-in-out',
         backdropFilter: 'blur(10px)',
-        backgroundColor: 'rgba(var(--bs-body-bg-rgb), 0.8)'
+        backgroundColor: isDarkMode 
+          ? 'rgba(33, 37, 41, 0.95)' 
+          : 'rgba(255, 255, 255, 0.95)'
       }}
     >
       <Container>

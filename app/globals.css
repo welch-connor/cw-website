@@ -34,6 +34,13 @@
 }
 
 /* Dark theme overrides - using :root.dark for higher specificity */
+:root {
+  /* Light theme (default) */
+  --bs-body-bg: #ffffff;
+  --bs-body-color: #212529;
+  --bs-border-color: #dee2e6;
+}
+
 :root.dark {
   --bs-body-bg: #1a1a1a;
   --bs-body-color: #f8f9fa;
@@ -49,6 +56,54 @@
   
   /* Apply dark color scheme */
   color-scheme: dark;
+}
+
+/* Card specific styles */
+.card {
+  /* Light theme (default) */
+  background-color: #ffffff;
+  border-color: #dee2e6;
+  color: inherit;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+/* Dark theme overrides */
+:root.dark {
+  /* Base colors */
+  --bs-body-color: #f8f9fa;
+  --bs-body-color-rgb: 248, 249, 250;
+  --bs-body-bg: #1a1a1a;
+  --bs-body-bg-rgb: 26, 26, 26;
+  
+  /* Text and emphasis */
+  --bs-emphasis-color: #fff;
+  --bs-emphasis-color-rgb: 255, 255, 255;
+  --bs-secondary-color: rgba(248, 249, 250, 0.75);
+  --bs-secondary-color-rgb: 248, 249, 250;
+  
+  /* Backgrounds */
+  --bs-secondary-bg: #2b2b2b;
+  --bs-tertiary-bg: #333333;
+  
+  /* Headings */
+  --bs-heading-color: #fff;
+}
+
+/* Card specific styles for dark mode */
+:root.dark .card {
+  background-color: rgba(33, 37, 41, 0.95);
+  border-color: rgba(33, 37, 41, 0.95);
+  color: var(--bs-body-color);
+}
+
+/* Navbar dark mode styles */
+:root.dark .navbar {
+  --bs-navbar-color: rgba(255, 255, 255, 0.9);
+  --bs-navbar-hover-color: #fff;
+  --bs-navbar-active-color: #fff;
+  --bs-navbar-brand-color: #fff;
+  --bs-navbar-brand-hover-color: #fff;
+  --bs-navbar-toggler-border-color: rgba(255, 255, 255, 0.1);
 }
 
 /* Apply theme colors to the body */
@@ -75,12 +130,12 @@ body.theme-loaded {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--primary);
+  background: var(--secondary);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  opacity: 0.8;
+  opacity: 0.4;
 }
 
 /* Fix for Bootstrap's bg-light in dark mode */

@@ -15,15 +15,26 @@ export function Card({
 }: CardProps) {
   const cardClasses = classNames(
     'p-4 rounded-3 h-100',
+    'card', // Base card class for styling
+    'border',
+    'shadow-sm',
+    'transition-all',
+    'duration-300',
     {
-      'bg-white shadow-sm': true,
-      'transition-all duration-300 hover:shadow': hoverable,
+      'hover:shadow': hoverable,
     },
     className
   );
+  
+  // No inline styles - using CSS variables from globals.css
+  const cardStyle = {};
 
   return (
-    <div className={cardClasses} {...props}>
+    <div 
+      className={cardClasses}
+      style={cardStyle}
+      {...props}
+    >
       {children}
     </div>
   );
@@ -41,8 +52,16 @@ export function CardTitle({
   className = 'h5 mb-3',
   ...props 
 }: CardTitleProps) {
+  const titleClasses = classNames(
+    'h5',
+    'mb-3',
+    'text-body', // Use theme's body text color
+    'dark:text-white', // Force white text in dark mode
+    className
+  );
+
   return (
-    <Tag className={className} {...props}>
+    <Tag className={titleClasses} {...props}>
       {children}
     </Tag>
   );

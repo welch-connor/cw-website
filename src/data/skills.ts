@@ -1,19 +1,19 @@
-import { SkillGroup } from '@/types';
+import { SkillGroup } from '@/src/types';
 
 export const skillGroups: SkillGroup[] = [
   {
     title: 'Full-Stack Development',
     skills: [
-      'TypeScript/JavaScript',
-      'React/Next.js/Node.js',
       'Python',
-      'RESTful APIs & GraphQL',
+      'Linux / Bash',
+      'GenAI',
+      'Workflow Automation',
       'Microservices Architecture',
       'Serverless Architecture'
     ]
   },
   {
-    title: 'Cloud & DevOps',
+    title: 'Cloud & DevSecOps',
     skills: [
       'Major cloud providers: AWS, GCP, Azure',
       'Containerization (Docker, Podman)',
@@ -26,8 +26,7 @@ export const skillGroups: SkillGroup[] = [
     skills: [
       'Natural Language Processing (NLP)',
       'Linear Programming (LP)',
-      'LLM Integration & APIs',
-      'Workflow Automation',
+      'LLM Integration / Inference',
       'AI Application Development'
     ]
   },

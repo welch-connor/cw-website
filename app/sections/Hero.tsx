@@ -2,9 +2,9 @@
 
 import { useEffect, useRef, useState, forwardRef } from 'react';
 import { Col, Row } from 'react-bootstrap';
-import { LinkButton } from '@/components/ui/Button';
-import { Section } from '@/components/ui/Section';
-import { ProfileImage } from '@/components/ui/ProfileImage';
+import { LinkButton } from '@/src/components/ui/Button';
+import { Section } from '@/src/components/ui/Section';
+import { ProfileImage } from '@/src/components/ui/ProfileImage';
 
 // Animation helper functions
 const useAnimateOnMount = (ref: React.RefObject<HTMLElement>, delay = 0) => {

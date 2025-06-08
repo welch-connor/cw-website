@@ -12,7 +12,7 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: 'Connor Welch | Cloud and AI',
-  description: 'Personal portfolio of Connor Welch - Tech strategist and AI/ML Engineer.',
+  description: 'Personal portfolio of Connor Welch - Tech strategy and AI/ML Engineer.',
   keywords: ['Tech Strategy','AI/ML','AWS','GCP','Azure','Portfolio'],
   authors: [{ name: 'Connor Welch' }],
   openGraph: {
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: 'https://conwelch.com',
     title: 'Connor Welch | Cloud and AI',
-    description: 'Personal portfolio of Connor Welch - Tech strategist and AI/ML Engineer.',
+    description: 'Personal portfolio of Connor Welch - Tech strategy and AI/ML Engineer.',
     siteName: 'Connor Welch',
   }
 };
