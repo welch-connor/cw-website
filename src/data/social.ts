@@ -1,5 +1,5 @@
 import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope } from 'react-icons/fa';
-import { SocialLink } from '@/types';
+import { SocialLink } from '@/src/types';
 
 export const socialLinks: SocialLink[] = [
   {
@@ -18,6 +18,6 @@ export const socialLinks: SocialLink[] = [
     href: 'mailto:connor.welch18@gmail.com',
     label: 'Email',
     icon: FaEnvelope,
-    ariaLabel: 'Send me an email'
+    ariaLabel: 'Chat with me'
   }
 ];

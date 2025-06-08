@@ -6,7 +6,7 @@ import { postsMeta } from '../postsMeta';
 
 // Statically generate all blog slugs from the posts folder
 export async function generateStaticParams() {
-  const postsDir = path.join(process.cwd(), 'app/posts');
+  const postsDir = path.join(process.cwd(), 'app/blog/posts');
   const files = fs.readdirSync(postsDir);
   return files
     .filter(file => file.endsWith('.mdx'))

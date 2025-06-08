@@ -1,5 +1,5 @@
 // Core MDX functionality
-export { mdxComponents } from '@/components/mdx/mdx-components';
+export { mdxComponents } from '@/src/components/mdx/mdx-components';
 
 // Re-export types with explicit names
 export type { PostFrontmatter, PostSource, PostListing } from './types';

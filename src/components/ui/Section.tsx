@@ -1,6 +1,6 @@
 'use client';
 
-import { SectionProps } from '@/types';
+import { SectionProps } from '@/src/types';
 
 export function Section({ 
   id, 

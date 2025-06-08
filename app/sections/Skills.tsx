@@ -1,8 +1,8 @@
 'use client';
 
-import { Card, CardTitle } from '@/components/ui/Card';
-import { Section } from '@/components/ui/Section';
-import { skillGroups } from '@/data/skills';
+import { Card, CardTitle } from '@/src/components/ui/Card';
+import { Section } from '@/src/components/ui/Section';
+import { skillGroups } from '@/src/data/skills';
 
 export function Skills() {
   return (

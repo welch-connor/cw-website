@@ -11,9 +11,6 @@ const nextConfig = {
     ignoreBuildErrors: false,
   },
   // Ensure React is in scope for JSX
-  experimental: {
-    reactRemoveProperties: false,
-  },
   compiler: {
     reactRemoveProperties: false,
   },

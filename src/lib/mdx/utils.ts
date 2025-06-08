@@ -3,7 +3,7 @@ import path from 'path';
 import matter from 'gray-matter';
 import { PostFrontmatter, PostSource, PostListing } from './types';
 
-const POSTS_DIRECTORY = path.join(process.cwd(), 'app/posts');
+const POSTS_DIRECTORY = path.join(process.cwd(), 'app/blog/posts');
 
 export async function getPostBySlug(slug: string): Promise<PostSource> {
   const fullPath = path.join(POSTS_DIRECTORY, `${slug}.mdx`);

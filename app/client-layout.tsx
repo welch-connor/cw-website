@@ -1,8 +1,8 @@
 'use client';
 
 import { ThemeProvider, useTheme } from 'next-themes';
-import { Navbar } from '@/components/layout/Navbar';
-import { Footer } from '@/components/layout/Footer';
+import { Navbar } from '@/src/components/layout/Navbar';
+import { Footer } from '@/src/components/layout/Footer';
 import { useEffect, useState } from 'react';
 
 // Apply theme classes to the html element
