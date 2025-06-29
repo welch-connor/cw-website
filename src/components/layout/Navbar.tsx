@@ -62,7 +62,7 @@ export function Navbar() {
       size: 'sm'
     },
     { 
-      href: 'https://storage.googleapis.com/connor-welch-resume/resume.pdf', 
+      href: 'https://storage.googleapis.com/cdub-web-data/resume/CWelch_Resume.pdf', 
       label: 'Resume',
       variant: 'primary',
       size: 'sm',
@@ -82,61 +82,112 @@ export function Navbar() {
     setExpanded(false);
   };
 
+  // Separate navigation items
+  const blogLink = navLinks.find(link => !link.isButton);
+  const actionButtons = navLinks.filter(link => link.isButton);
+
   return (
-    <BsNavbar 
-      expand="lg" 
-      className={navbarClasses}
-      expanded={expanded}
-      onToggle={() => setExpanded(!expanded)}
-      style={{
-        zIndex: 1030,
-        transition: 'all 0.3s ease-in-out',
-        backdropFilter: 'blur(10px)',
-        backgroundColor: isDarkMode 
-          ? 'rgba(33, 37, 41, 0.95)' 
-          : 'rgba(255, 255, 255, 0.95)'
-      }}
-    >
-      <Container>
-        <Link href="/" className="navbar-brand fw-bold">Connor Welch</Link>
-        <BsNavbar.Toggle aria-controls="basic-navbar-nav" />
-        <BsNavbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
-            {navLinks
-              .filter(link => !link.isButton)
-              .map((link) => (
-                <Nav.Item key={link.href} className="d-flex align-items-center">
+    <div className={navbarClasses} style={{
+      zIndex: 1030,
+      transition: 'all 0.3s ease-in-out',
+      backdropFilter: 'blur(10px)',
+      backgroundColor: isDarkMode 
+        ? 'rgba(33, 37, 41, 0.95)' 
+        : 'rgba(255, 255, 255, 0.95)'
+    }}>
+      <Container className="px-3">
+        <div className="d-flex w-100 align-items-center py-2">
+          <Link href="/" className="navbar-brand fw-bold me-4">Connor Welch</Link>
+          
+          {/* Desktop Navigation - Only show on lg screens and up */}
+          <div className="d-none d-lg-flex w-100">
+            {/* Blog Link */}
+            <Nav className="me-auto">
+              {blogLink && (
+                <Nav.Item>
                   <Link
-                    href={link.href}
-                    className={`nav-link ${pathname === link.href ? 'active' : ''}`}
-                    onClick={handleNavLinkClick}
+                    href={blogLink.href}
+                    className={`nav-link ${pathname === blogLink.href ? 'active' : ''} px-2`}
                   >
-                    {link.label}
+                    {blogLink.label}
                   </Link>
                 </Nav.Item>
-              ))}
-          </Nav>
-          <div className="d-flex align-items-center gap-2">
-            {navLinks
-              .filter(link => link.isButton)
-              .map((link) => (
+              )}
+            </Nav>
+            
+            {/* Action Buttons */}
+            <div className="d-flex align-items-center gap-2">
+              {actionButtons.map((button) => (
                 <LinkButton
-                  key={link.href}
-                  href={link.href}
-                  variant={link.variant}
-                  size={link.size}
-                  onClick={handleNavLinkClick}
-                  external={link.external}
-                  className="ms-2"
+                  key={button.href}
+                  href={button.href}
+                  variant={button.variant}
+                  size="sm"
+                  external={button.external}
+                  className="flex-shrink-0"
                 >
-                  {link.label}
+                  {button.label}
                 </LinkButton>
               ))}
-            <div className="vr d-none d-lg-flex mx-2"></div>
-            <ThemeToggle />
+              <div className="vr mx-2 d-none d-lg-block"></div>
+              <div className="ms-lg-0">
+                <ThemeToggle />
+              </div>
+            </div>
           </div>
-        </BsNavbar.Collapse>
+          
+          {/* Mobile Toggle - Only show on screens smaller than lg */}
+          <div className="d-flex align-items-center ms-auto d-lg-none">
+            <button 
+              className="navbar-toggler border-0"
+              type="button"
+              onClick={() => setExpanded(!expanded)}
+              aria-expanded={expanded}
+              aria-label="Toggle navigation"
+            >
+              <span className="navbar-toggler-icon"></span>
+            </button>
+          </div>
+        </div>
+
+        {/* Mobile Menu - Only show on screens smaller than lg */}
+        {expanded && (
+          <div className="d-lg-none py-3">
+            <div className="d-flex flex-wrap align-items-center gap-2">
+              {/* Blog Link - Mobile */}
+              {blogLink && (
+                <Link
+                  href={blogLink.href}
+                  className={`btn btn-link text-decoration-none ${pathname === blogLink.href ? 'active' : ''} px-2 py-2`}
+                  onClick={handleNavLinkClick}
+                >
+                  {blogLink.label}
+                </Link>
+              )}
+              
+              {/* Action Buttons - Mobile */}
+              {actionButtons.map((button) => (
+                <LinkButton
+                  key={`mobile-${button.href}`}
+                  href={button.href}
+                  variant={button.variant}
+                  size="sm"
+                  external={button.external}
+                  className="flex-shrink-0"
+                  onClick={handleNavLinkClick}
+                >
+                  {button.label}
+                </LinkButton>
+              ))}
+              
+              <div className="vr mx-2 d-lg-none"></div>
+              <div className="ms-lg-0">
+                <ThemeToggle />
+              </div>
+            </div>
+          </div>
+        )}
       </Container>
-    </BsNavbar>
+    </div>
   );
 }
